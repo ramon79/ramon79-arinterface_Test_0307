@@ -38,7 +38,7 @@ public class JoyStick : MonoBehaviour {
 		if (MoveFlag)
 			car.transform.Translate(Vector3.forward*Time.deltaTime*5f);
 
-			//휠 회전 효과
+			//휠 회전 효과 적용
 			wheelFLTransform.Rotate(wheelFL.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
 			wheelFLTransform.Rotate(wheelFR.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
 			wheelFLTransform.Rotate(wheelRL.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
