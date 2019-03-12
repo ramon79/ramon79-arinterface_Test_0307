@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class JoyStick : MonoBehaviour {
+	public WheelCollider wheelFL;
+	public WheelCollider wheelFR;
+	public WheelCollider wheelRL;
+	public WheelCollider wheelRR;
+	public Transform wheelFLTransform;
+	public Transform wheelFRTransform;
+	public Transform wheelRLTransform;
+	public Transform wheelRRTransform;
 
 	// Use this for initialization
 
@@ -29,6 +37,12 @@ public class JoyStick : MonoBehaviour {
 	void Update () {
 		if (MoveFlag)
 			car.transform.Translate(Vector3.forward*Time.deltaTime*5f);
+
+			//휠 회전 효과
+			wheelFLTransform.Rotate(wheelFL.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
+			wheelFLTransform.Rotate(wheelFR.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
+			wheelFLTransform.Rotate(wheelRL.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
+			wheelFLTransform.Rotate(wheelRR.rpm / 60 * 360 *Time.deltaTime, 0.0f, 0.0f);
 	}
 
 	public void Drag(BaseEventData _Data) {
